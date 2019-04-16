@@ -1,0 +1,88 @@
+---
+title: "working code"
+author: "Charley"
+date: '2019-04-08'
+output: html_document
+---
+
+
+# 16S Gene Alignment Pipeline
+
+
+Dependencies
+
+```{r, warning = FALSE, message = FALSE}
+library(tidyverse)
+library(reticulate)
+path_to_python <- '/Users/charleycarriero/anaconda/bin/python'
+use_python(path_to_python, required = TRUE)
+setwd('/Users/charleycarriero/Desktop/automate-compare')
+
+#define functions 
+source('function-abif_fasta.R')
+source('function-parse_blast.R')
+```
+
+
+
+
+1.  Transform ab1 files into FASTA file.
+
+```{r, warning = FALSE, message = FALSE}
+f <- '/Users/charleycarriero/Desktop/automate-compare/Michelle_040119Seq'
+abif_fasta(folder= f, exclude=NULL, trim=TRUE,
+           trim.check=FALSE, export.check=TRUE,
+           show.prog=TRUE, output='V3-V6seq.FASTA')
+```
+
+
+
+2. BLAST the FASTA file. (see if possible in R)
+
+
+
+3. Parse output from BLAST
+
+```{r, warning = FALSE, message = FALSE}
+f <- '/Users/charleycarriero/Desktop/automate-compare/AA1J3F0A014-Alignment.xml'
+parse_blast(filename=f, ngroups=1, tophit=FALSE, output = 'blast_output.csv')
+```
+
+
+4. Prep for Alignment 
+
+```{r, warning = FALSE, message = FALSE}
+source("preprocess_lalign.R")
+```
+
+
+5. Sequence Alignment 
+
+```{r, warning = FALSE, message = FALSE}
+source_python("lalign.py")
+output <- read_csv("lalign_output.csv") %>% select(-X1)
+
+output
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
