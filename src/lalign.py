@@ -14,8 +14,8 @@ import pandas as pd
 
 
 
-blast_output= pd.read_csv('for_lalign.csv')
-df = pd.read_csv('what_are_our_MET_strains_full.csv').rename(columns = {'16S sequence (NanoPore)': 'full_seq',
+blast_output= pd.read_csv('data/blast_files/prepped_for_lalign.csv')
+df = pd.read_csv('data/what_are_our_MET_strains_full.csv').rename(columns = {'16S sequence (NanoPore)': 'full_seq',
                                                                         'NB2#': 'nb2_num',
                                                                         'MET2 Species': 'species'})
 df.drop(df.tail(4).index,inplace=True)
@@ -70,4 +70,4 @@ def query_lalign (s1, s2):
 o['pid'] = np.vectorize(query_lalign)(o['query_seq'], o['full_seq'])
 o = o[['sample_name', 'nb2_num','seq_len','match','species', 'pid']]
 o['pass'] = np.where(o['pid'] > 98, 'pass', 'fail')
-o.to_csv('lalign_output.csv')
+o.to_csv('results/lalign_output.csv')

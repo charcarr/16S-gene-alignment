@@ -1,66 +1,103 @@
 ---
-title: "working code"
-author: "Charley"
+title: "16S Gene Alignment"
+author: "Charley Carriero"
 date: '2019-04-08'
-output: html_document
+output: html_document - but don't actually knit
 ---
 
 
 # 16S Gene Alignment Pipeline
 
 
-Dependencies
+0. Dependencies
 
+
+  * Note, you will need to have python installed & 
+      the following package dependencies:
+        - requests
+        - beautifulsoup4 
+        - numpy
+        - pandas
+        
 ```{r, warning = FALSE, message = FALSE}
 library(tidyverse)
 library(reticulate)
-path_to_python <- '/Users/charleycarriero/anaconda/bin/python'
+
+today <- Sys.Date()
+my_dir <- getwd()
+
+# set up python interface
+path_to_python <- '/Users/charleycarriero/anaconda/bin/python'   # change me 
 use_python(path_to_python, required = TRUE)
-setwd('/Users/charleycarriero/Desktop/automate-compare')
+
 
 #define functions 
-source('function-abif_fasta.R')
-source('function-parse_blast.R')
+source('src/function-abif_fasta.R')
+source('src/function-parse_blast.R')
+```
+
+```{r}
+#py_discover_config() #uncomment if you need to check what your path to python is
 ```
 
 
 
+1.  Transform ab1 files into a FASTA file.
 
-1.  Transform ab1 files into FASTA file.
+
+  * Drop the folder with ab1 files in the data/sanger_seqs directory
+  * Update the folder name in the box below
 
 ```{r, warning = FALSE, message = FALSE}
-f <- '/Users/charleycarriero/Desktop/automate-compare/Michelle_040119Seq'
+folder_name <- '2019-04-15_1_041519Seq_Michelle_1'      # change me 
+
+
+f <- paste0(my_dir, '/data/sangar_seqs/', folder_name)
 abif_fasta(folder= f, exclude=NULL, trim=TRUE,
            trim.check=FALSE, export.check=TRUE,
            show.prog=TRUE, output='V3-V6seq.FASTA')
+paste("Success: V3-V6seq.FASTA")
 ```
 
 
+2. BLAST the FASTA file. 
 
-2. BLAST the FASTA file. (see if possible in R)
+  
+  * export as an xml file
+  * drag and drop into the data/blast_files directory
+
 
 
 
 3. Parse output from BLAST
 
+  * update the file name in the box below
+
 ```{r, warning = FALSE, message = FALSE}
-f <- '/Users/charleycarriero/Desktop/automate-compare/AA1J3F0A014-Alignment.xml'
-parse_blast(filename=f, ngroups=1, tophit=FALSE, output = 'blast_output.csv')
+file_name <- 'BBZPJ341014-Alignment.xml'              # change me
+
+
+f <- paste0(my_dir, '/data/blast_files/', file_name)
+parse_blast(filename=f, ngroups=1, tophit=FALSE, output = 'parsed_blast_output.csv')
+paste("Success: parsed_blast_output.csv")
 ```
 
 
 4. Prep for Alignment 
 
 ```{r, warning = FALSE, message = FALSE}
-source("preprocess_lalign.R")
+source("src/preprocess_lalign.R")
+print("Success: prepped_for_lalign.csv")
 ```
 
 
 5. Sequence Alignment 
 
 ```{r, warning = FALSE, message = FALSE}
-source_python("lalign.py")
-output <- read_csv("lalign_output.csv") %>% select(-X1)
+source_python("src/lalign.py")
+
+fo_name<-paste0("results/lalign_output.csv")
+output <- read_csv(fo_name) %>% select(-X1)
 
 output
 ```

@@ -10,11 +10,12 @@
 
 
 library(tidyverse)
-setwd('/Users/charleycarriero/Desktop/automate-compare')
 
-read_csv("blast_output.csv") %>% 
+
+read_csv("data/blast_files/parsed_blast_output.csv") %>% 
   select(sample_name, seq_len, match, query_seq) %>% 
   filter(str_detect(sample_name, "^[B|P][0-9]")) %>% 
   mutate(nb2_num = str_extract(sample_name, regex("[0-9]+"))) %>% 
   select(sample_name, nb2_num, match, seq_len, query_seq) %>% 
-  write_csv("for_lalign.csv")
+  filter(nb2_num < 48) %>% 
+  write_csv("data/blast_files/prepped_for_lalign.csv")
