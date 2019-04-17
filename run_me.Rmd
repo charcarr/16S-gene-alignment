@@ -11,13 +11,14 @@ output: html_document - but don't actually knit
 
 0. Dependencies
 
-
-  * Note, you will need to have python installed & 
+    * Note, you will need to have python installed & 
       the following package dependencies:
         - requests
         - beautifulsoup4 
         - numpy
         - pandas
+        
+        
         
 ```{r, warning = FALSE, message = FALSE}
 library(tidyverse)
@@ -44,9 +45,10 @@ source('src/function-parse_blast.R')
 
 1.  Transform ab1 files into a FASTA file.
 
-
-  * Drop the folder with ab1 files in the data/sanger_seqs directory
-  * Update the folder name in the box below
+    * Drop the folder with ab1 files in the data/sanger_seqs directory
+    * Update the folder name in the box below
+    
+    
 
 ```{r, warning = FALSE, message = FALSE}
 folder_name <- '2019-04-15_1_041519Seq_Michelle_1'      # change me 
@@ -63,15 +65,17 @@ paste("Success: V3-V6seq.FASTA")
 2. BLAST the FASTA file. 
 
   
-  * export as an xml file
-  * drag and drop into the data/blast_files directory
+    * export as an xml file
+    * drag and drop into the data/blast_files directory
 
 
 
 
 3. Parse output from BLAST
 
-  * update the file name in the box below
+     * update the file name in the box below
+     
+     
 
 ```{r, warning = FALSE, message = FALSE}
 file_name <- 'BBZPJ341014-Alignment.xml'              # change me
