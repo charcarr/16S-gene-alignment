@@ -11,7 +11,7 @@ output: html_document - but don't actually knit
 
 0. Dependencies
 
-    * Note, you will need to have python installed & 
+    * Note, you will also need to have python installed & 
       the following package dependencies:
         - requests
         - beautifulsoup4 
@@ -83,7 +83,7 @@ file_name <- 'BBZPJ341014-Alignment.xml'              # change me
 
 f <- paste0(my_dir, '/data/blast_files/', file_name)
 parse_blast(filename=f, ngroups=1, tophit=FALSE, output = 'parsed_blast_output.csv')
-paste("Success: parsed_blast_output.csv")
+paste("Output: data/blast_files/parsed_blast_output.csv")
 ```
 
 
@@ -91,14 +91,13 @@ paste("Success: parsed_blast_output.csv")
 
 ```{r, warning = FALSE, message = FALSE}
 source("src/preprocess_lalign.R")
-print("Success: prepped_for_lalign.csv")
+print("Output: data/blast_files/prepped_for_lalign.csv")
 ```
 
 
 5. Sequence Alignment 
 
 ```{r, warning = FALSE, message = FALSE}
-#what_are_our_MET_strains_full.csv in data directory
 source_python("src/lalign.py")
 
 fo_name<-paste0("results/lalign_output.csv")
