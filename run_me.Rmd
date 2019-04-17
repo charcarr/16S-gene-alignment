@@ -98,6 +98,7 @@ print("Success: prepped_for_lalign.csv")
 5. Sequence Alignment 
 
 ```{r, warning = FALSE, message = FALSE}
+#what_are_our_MET_strains_full.csv in data directory
 source_python("src/lalign.py")
 
 fo_name<-paste0("results/lalign_output.csv")

@@ -1,12 +1,19 @@
 # 16S-gene-alignment
-A pipeline for species identification and quality control.
+A pipeline for bacterial species identification and quality control. <br/>
+The scripts in this pipeline are designed to automate species identification through comparing 16S sangar sequences to a known bank of full length 16S gene sequences. 
 
-
-**Author**: Charley Carriero <br/>
-**Date**: April 16, 2019 <br/>
 
 ---
 <br/>
+
+
+### Getting Started:
+
+
+* Put the folder of sangar sequences in the `data/sangar_seqs` directory 
+* Add the `what_are_our_strains.csv` to the `data` directory 
+
+
 
 **Usage Instructions**
 
@@ -29,7 +36,7 @@ Dependencies are listed below.
 
 <Br/>
 
-**Description**
+### Description: 
 
 
 The gene alignment pipeline is broken into 5 steps
