@@ -6,10 +6,9 @@ A pipeline for species identification and quality control.
 **Date**: April 16, 2019 <br/>
 
 ---
+<br/>
 
-<br/> 
-
-#### Usage Instructions
+**Usage Instructions**
 
 Open the `run_me.Rmd` file and follow the directions inside. <br/>
 Each script can be run independently from within the document. 
@@ -30,8 +29,7 @@ Dependencies are listed below.
 
 <Br/>
 
-
-#### Description
+**Description**
 
 
 The gene alignment pipeline is broken into 5 steps
