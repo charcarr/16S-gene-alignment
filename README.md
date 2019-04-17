@@ -35,7 +35,7 @@ Dependencies are listed below.
 
 <Br/>
 
-### Description: 
+## Description: 
 
 
 The gene alignment pipeline is broken into 5 steps
@@ -49,4 +49,11 @@ The gene alignment pipeline is broken into 5 steps
 
 <br/> 
 
+
+<br/>
+
+**Author**: Charley Carriero <br/>
+**Date**: April 2019
+
+<br/>
 
