@@ -3,11 +3,10 @@ A pipeline for bacterial species identification and quality control. <br/>
 The scripts in this pipeline are designed to automate species identification through comparing 16S sangar sequences to a known bank of full length 16S gene sequences. 
 
 
----
 <br/>
 
 
-### Getting Started:
+## Getting Started:
 
 
 * Put the folder of sangar sequences in the `data/sangar_seqs` directory 
