@@ -4,7 +4,7 @@ Purpose: To automate 16S sangar sequence identification by pairwise comparsion t
  ExPASy LALIGN server. <br/>
  
  <br/>
- Contains scripts to pre-process the data, query LALIGN server, scrape, parse and process the results.
+ Contains scripts to pre-process data, query LALIGN server, scrape, parse and process the results.
 
 
 <br/>
