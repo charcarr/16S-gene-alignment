@@ -1,7 +1,10 @@
 # 16S-gene-alignment
 A pipeline for bacterial species identification. <br/>
 Purpose: To automate 16S sangar sequence identification by pairwise comparsion to known full genomes via
- ExPASy LALIGN server.
+ ExPASy LALIGN server. <br/>
+ 
+ <br/>
+ Contains scripts to pre-process the data, query LALIGN server, scrape, parse and process the results.
 
 
 <br/>
