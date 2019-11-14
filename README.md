@@ -1,6 +1,7 @@
 # 16S-gene-alignment
-A pipeline for bacterial species identification and quality control. <br/>
-The scripts in this pipeline are designed to automate species identification through comparing 16S sangar sequences to a known bank of full length 16S gene sequences. 
+A pipeline for bacterial species identification. <br/>
+Purpose: To automate 16S sangar sequence identification by pairwise comparsion to known full genomes via
+ ExPASy LALIGN server.
 
 
 <br/>
