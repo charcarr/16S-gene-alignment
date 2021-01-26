@@ -5,6 +5,8 @@
 #   Subset entries to only include ^[B|P][0-9]
 #   Initialize a new column (nb2_num) to specify which strand to align
 #
+#   Author: Charley Carriero
+#
 ###########################################################################
 
 
