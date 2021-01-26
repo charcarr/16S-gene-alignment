@@ -1,4 +1,6 @@
 #///////////////////////////////////////////////////////////////////////////////////
+# Author: Sandi Yen
+#
 # Function to parse xml output of ncbi blast of V3kl V6r regions
 # returns query cover, evalue, percent identity, matched organism(s), 
 # accession number, query sequence
