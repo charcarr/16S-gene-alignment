@@ -1,4 +1,6 @@
 #////////////////////////////////////////////////////////////////////////////////////
+# Author: Sandi Yen
+#
 # Function to read Applied Biosystem Inc. Format (Ab1, ABIF) files and put into one
 # FASTA files for easy blasting on NCBI
 
